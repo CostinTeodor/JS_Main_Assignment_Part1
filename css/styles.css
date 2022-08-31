@@ -47,9 +47,12 @@ header>section>img {
     margin: 13rem;
     margin-bottom: 1rem;
 }
-#computer>img, #player>img{
-    width:150px;
+
+#computer>img,
+#player>img {
+    width: 150px;
 }
+
 #computer>img {
     transform: scale(1.5) rotate(270deg);
 }
@@ -60,15 +63,16 @@ header>section>img {
     font-size: 2rem;
 }
 
-#Start {
+#start {
     border-radius: 10px;
     border: 2px solid black;
     background-color: #E58F65;
     font-size: 2rem;
     font-family: inherit;
+    cursor: pointer;
 }
 
-#Start:hover {
+#start:hover {
     transform: scale(1.1);
 }
 
@@ -114,13 +118,14 @@ main {
 .roundStartComputer {
     animation: jumpComputer 0.5s 4;
 }
-#counter{
-    position:absolute;
+
+#counter {
+    position: absolute;
     z-index: 9;
     opacity: 0.5;
-    color:white;
+    color: white;
     font-size: 18rem;
-    top:7rem;
+    top: 7rem;
     visibility: hidden;
 }
 
@@ -129,34 +134,21 @@ input {
     width: 60%;
     border-radius: 5px;
     border: 2px solid black;
-    background-color: #F9E784;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: .5rem;
 }
 
-#outputMessage{
+#outputMessage {
     text-align: center;
-    color:#E58F65;
+    color: #E58F65;
     font-size: 5rem;
-    transition:height 1s ease-out;
-    height:0;
-    overflow:hidden;
+    transition: height 1s ease-out;
+    height: 0;
+    overflow: hidden;
 }
 
-#outputMessage h1{
+#outputMessage h1 {
     margin: 0;
-}
-
-@keyframes changeBackground {
-    0% {
-        background-color: #8C6057
-    }
-
-    25% {
-        background-color: #FEF9FF
-    }
-
-    50% {
-        background-color: #829298
-    }
 }
 
 @keyframes jumpPlayer {
