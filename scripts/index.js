@@ -75,7 +75,7 @@ function round() {
     }, 2000);
     setTimeout(function(){
         document.getElementById("outputMessage").style.height = "0"; 
-    },3000);
+    },4500);
 }
 
 
@@ -86,11 +86,11 @@ function game() {
         
         let computer = document.getElementsByClassName("computerImage")[0];
         let player = document.getElementsByClassName("playerImage")[0];
-        let button = document.getElementById("Start");
+        let button = document.getElementById("start");
         let counter = document.querySelector("#counter");
         
         if(button.innerText == 'Try Again'){
-            button.textContent = 'Start';
+            button.textContent = 'start';
             gameRounds = 0;
             playerScore = 0;
             computerScore = 0;
