@@ -5,7 +5,8 @@ function computerPlay() {
         Math.floor(Math.random() * 3);
     return OPTIONS[randomComputerOption];
 }
-function gameRound(playerSelection, computerSelection) {
+
+function playRound(playerSelection, computerSelection) {
     switch (playerSelection) {
         case "scissors":
             switch (computerSelection) {
@@ -51,21 +52,17 @@ let playerSelection;
 let playerScore = 0
 let computerScore = 0;
 let gameRounds = 0;
-let ok = 0;
 
-// function playerSelectionIcon(option){
-//     playerSelection = option;
-//     ok = 1;
-// }
+function playerSelectionIcon(option) {
+    document.querySelector("#userChoice").value = option;
+}
 
 function round() {
 
-    if(ok == 0)
-        playerSelection = document.querySelector("#userChoice").value;
+    playerSelection = document.querySelector("#userChoice").value;
     playerSelection = playerSelection.toLowerCase();
     COMPUTER_SELECTION = computerPlay();
-    // alert(gameRound(playerSelection, COMPUTER_SELECTION));
-    let gameOutcome = gameRound(playerSelection, COMPUTER_SELECTION);
+    let gameOutcome = playRound(playerSelection, COMPUTER_SELECTION);
     if (gameOutcome.includes("Win"))
         playerScore++;
     else if (gameOutcome.includes("Lose"))
@@ -77,23 +74,23 @@ function round() {
     setTimeout(function () {
         document.querySelector("#playerScore").textContent = `Score: ${playerScore}`;
         document.querySelector("#computerScore").textContent = `Score: ${computerScore}`;
-        document.getElementById("outputMessage").style.height = "10rem"; 
-        document.getElementById("outputMessage").textContent = gameRound(playerSelection, COMPUTER_SELECTION);
+        document.getElementById("outputMessage").style.height = "10rem";
+        document.getElementById("outputMessage").textContent = playRound(playerSelection, COMPUTER_SELECTION);
     }, 2000);
-    setTimeout(function(){
-        document.getElementById("outputMessage").style.height = "0"; 
-    },4500);
+    setTimeout(function () {
+        document.getElementById("outputMessage").style.height = "0";
+    }, 4500);
 }
 
 function game() {
     if (OPTIONS.includes(document.querySelector("#userChoice").value)) {
-        
+
         let computer = document.getElementsByClassName("computerImage")[0];
         let player = document.getElementsByClassName("playerImage")[0];
         let button = document.getElementById("start");
         let counter = document.querySelector("#counter");
-        
-        if(button.innerText == 'Try Again'){
+
+        if (button.innerText == 'Try Again') {
             button.textContent = 'start';
             gameRounds = 0;
             playerScore = 0;
@@ -130,11 +127,11 @@ function game() {
             player.src = `images/${playerSelection}_hand.png`;
         }, 2000);
         round();
-        if(gameRounds >= 5){
+        if (gameRounds >= 5) {
             button.textContent = 'Try Again';
             setTimeout(function () {
-                document.getElementById("outputMessage").style.height = "10rem"; 
-                document.getElementById("outputMessage").textContent = playerScore>computerScore ? ("You won!") : ("You lost :(");
+                document.getElementById("outputMessage").style.height = "10rem";
+                document.getElementById("outputMessage").textContent = playerScore > computerScore ? ("You won!") : ("You lost :(");
             }, 2000);
         }
     }

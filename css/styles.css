@@ -3,7 +3,14 @@
     src: url(../fonts/Ranchers-Regular.ttf);
 }
 
-.flex {
+body {
+    margin: auto;
+    background-color: #F9E784;
+    font-family: "Ranchers", sans-serif;
+}
+
+/* Header */
+.titleContainer {
     display: flex;
     justify-content: center;
 }
@@ -23,9 +30,47 @@ header>section {
     align-items: center;
 }
 
+header>section:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+}
+
+#rock {
+    color: #8C6057;
+}
+
+#paper {
+    color: #FEF9FF;
+}
+
+#scissors {
+    color: #829298;
+}
+
 header>section>img {
     height: 4rem;
     width: auto;
+}
+
+/* Outcome message  */
+#outputMessage {
+    text-align: center;
+    color: #E58F65;
+    font-size: 5rem;
+    transition: height 1s ease-out;
+    height: 0;
+    overflow: hidden;
+}
+
+#outputMessage h1 {
+    margin: 0;
+}
+
+/* Main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #game {
@@ -38,8 +83,24 @@ header>section>img {
     text-align: center;
 }
 
-#player>img {
-    transform: scale(1.5) rotate(90deg) scaleX(-1);
+#game>figure>figcaption>h3 {
+    margin-top: -10rem;
+    margin-bottom: 7rem;
+    font-size: 2rem;
+}
+
+.score {
+    text-shadow: 3px 2px black;
+    color: #E58F65;
+}
+
+input {
+    margin-top: 3rem;
+    width: 60%;
+    border-radius: 5px;
+    border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: .5rem;
 }
 
 #player,
@@ -53,14 +114,28 @@ header>section>img {
     width: 150px;
 }
 
+#player>img {
+    transform: scale(1.5) rotate(90deg) scaleX(-1);
+}
+
 #computer>img {
     transform: scale(1.5) rotate(270deg);
 }
 
-#game>section>h3 {
-    margin-top: -10rem;
-    margin-bottom: 7rem;
-    font-size: 2rem;
+#rounds {
+    font-size: 3rem;
+    color: #E58F65;
+    text-shadow: 3px 3px black;
+}
+
+#counter {
+    position: absolute;
+    z-index: 9;
+    opacity: 0.5;
+    color: white;
+    font-size: 18rem;
+    top: 7rem;
+    visibility: hidden;
 }
 
 #start {
@@ -76,41 +151,6 @@ header>section>img {
     transform: scale(1.1);
 }
 
-body {
-    margin: auto;
-    background-color: #F9E784;
-    font-family: "Ranchers", sans-serif;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#rock {
-    color: #8C6057;
-}
-
-#paper {
-    color: #FEF9FF;
-}
-
-#scissors {
-    color: #829298;
-}
-
-#rounds {
-    font-size: 3rem;
-    color: #E58F65;
-    text-shadow: 3px 3px black;
-}
-
-.score {
-    text-shadow: 3px 2px black;
-    color: #E58F65;
-}
-
 .roundStartPlayer {
     animation: jumpPlayer 0.5s 4;
 }
@@ -119,43 +159,7 @@ main {
     animation: jumpComputer 0.5s 4;
 }
 
-#counter {
-    position: absolute;
-    z-index: 9;
-    opacity: 0.5;
-    color: white;
-    font-size: 18rem;
-    top: 7rem;
-    visibility: hidden;
-}
-
-input {
-    margin-top: 3rem;
-    width: 60%;
-    border-radius: 5px;
-    border: 2px solid black;
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: .5rem;
-}
-
-#outputMessage {
-    text-align: center;
-    color: #E58F65;
-    font-size: 5rem;
-    transition: height 1s ease-out;
-    height: 0;
-    overflow: hidden;
-}
-
-#outputMessage h1 {
-    margin: 0;
-}
-
-header>section:hover {
-    transform: scale(1.1);
-    cursor:pointer;
-}
-
+/* Animations */
 @keyframes jumpPlayer {
     0% {
         transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)

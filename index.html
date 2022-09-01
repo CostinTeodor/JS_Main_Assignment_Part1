@@ -11,44 +11,54 @@
 </head>
 
 <body>
-    <div class="flex">
+    <div class="titleContainer">
         <header>
-            <section id="rock" onclick="playerSelectionValue('rock')">
+            <section id="rock" onclick="playerSelectionIcon('rock')">
                 <h1>Rock,</h1>
                 <img src="./images/the_rock.png" alt="Head of The Rock Dwayne Johnson">
             </section>
-            <section id="paper" onclick="playerSelectionValue('paper')">
+            <section id="paper" onclick="playerSelectionIcon('paper')">
                 <h1>Paper,</h1>
                 <img src="./images/crumpled_paper.png" alt="Crumpled Paper">
             </section>
-            <section id="scissors" onclick="playerSelectionValue('scissors')">
+            <section id="scissors" onclick="playerSelectionIcon('scissors')">
                 <h1>Scissors!</h1>
                 <img src="./images/scissors.png" alt="Picture of a scissors">
             </section>
         </header>
     </div>
     <section id="outputMessage">
-        <h1>Lorem Ipsum</h1>
+        <h1></h1>
     </section>
     <main>
         <section id="game">
-            <section id="player">
-                <h3 id="playerScore" , class="score">Score: 0</h3>
-                <img class="playerImage" src="images/rock_hand.png" alt="Player starting hand for Rock Paper Scissors">
+            <figure id="player">
+                <figcaption>
+                    <h3 id="playerScore" , class="score">
+                        Score: 0
+                    </h3>
+                </figcaption>
+                <img class="playerImage" src="images/rock_hand.png" 
+                    alt="Player starting hand for Rock Paper Scissors">
                 <br>
                 <input id="userChoice" type="text" placeholder="Enter your choice!">
-            </section>
+            </figure>
             <h3 id="rounds">
                 0/5
             </h3>
             <h1 id="counter">
                 3
             </h1>
-            <section id="computer">
-                <h3 id="computerScore" , class="score">Score: 0</h3>
+            <figure id="computer">
+                <figcaption>
+                    <h3 id="computerScore" , class="score">
+                        Score: 0
+                    </h3>
+                </figcaption>
                 <img class="computerImage" src="images/rock_hand.png"
                     alt="Computer starting hand for Rock Paper Scissors">
-            </section>
+                <br>
+            </figure>
         </section>
         <button id="start" onclick="game()" type="submit">Start</button>
     </main>
