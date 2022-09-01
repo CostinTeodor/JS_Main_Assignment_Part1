@@ -51,10 +51,17 @@ let playerSelection;
 let playerScore = 0
 let computerScore = 0;
 let gameRounds = 0;
+let ok = 0;
+
+// function playerSelectionIcon(option){
+//     playerSelection = option;
+//     ok = 1;
+// }
 
 function round() {
 
-    playerSelection = document.querySelector("#userChoice").value;
+    if(ok == 0)
+        playerSelection = document.querySelector("#userChoice").value;
     playerSelection = playerSelection.toLowerCase();
     COMPUTER_SELECTION = computerPlay();
     // alert(gameRound(playerSelection, COMPUTER_SELECTION));
@@ -78,9 +85,6 @@ function round() {
     },4500);
 }
 
-
-
-let numberOfToggles = 0;
 function game() {
     if (OPTIONS.includes(document.querySelector("#userChoice").value)) {
         

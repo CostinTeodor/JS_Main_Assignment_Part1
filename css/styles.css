@@ -151,6 +151,11 @@ input {
     margin: 0;
 }
 
+header>section:hover {
+    transform: scale(1.1);
+    cursor:pointer;
+}
+
 @keyframes jumpPlayer {
     0% {
         transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
