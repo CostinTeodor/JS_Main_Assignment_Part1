@@ -1,8 +1,16 @@
+/* Fonts */
 @font-face {
     font-family: "Ranchers";
     src: url(../fonts/Ranchers-Regular.ttf);
 }
 
+/* Variables */
+:root{
+    --orange_writing: #E58F65;
+    --shadowing: 3px 3px black;
+    --black_border: 2px solid black;
+    --scale_transform: scale(1.1);
+}
 body {
     margin: auto;
     background-color: #F9E784;
@@ -11,27 +19,43 @@ body {
 
 /* Header */
 .titleContainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 header {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 3rem;
     font-size: 1.5rem;
-    text-shadow: 3px 3px black;
+    text-shadow: var(--shadowing);
     width: 350px;
-    justify-content: space-around;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
 }
 
 header>section {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 header>section:hover {
-    transform: scale(1.1);
+    -webkit-transform: var(--scale_transform);
+        -ms-transform: var(--scale_transform);
+            transform: var(--scale_transform);
     cursor:pointer;
 }
 
@@ -55,8 +79,10 @@ header>section>img {
 /* Outcome message  */
 #outputMessage {
     text-align: center;
-    color: #E58F65;
+    color: var(--orange_writing);
     font-size: 5rem;
+    -webkit-transition: height 1s ease-out;
+    -o-transition: height 1s ease-out;
     transition: height 1s ease-out;
     height: 0;
     overflow: hidden;
@@ -68,19 +94,31 @@ header>section>img {
 
 /* Main */
 main {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 #game {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 #game>* {
     margin-top: 13rem;
     text-align: center;
+    width: 60%;
 }
 
 #game>figure>figcaption>h3 {
@@ -90,15 +128,15 @@ main {
 }
 
 .score {
-    text-shadow: 3px 2px black;
-    color: #E58F65;
+    text-shadow:var(--shadowing);
+    color: var(--orange_writing);
 }
 
 input {
     margin-top: 3rem;
-    width: 60%;
+    width: 90%;
     border-radius: 5px;
-    border: 2px solid black;
+    border: var(--black_border);
     background-color: rgba(255, 255, 255, 0.6);
     padding: .5rem;
 }
@@ -115,17 +153,21 @@ input {
 }
 
 #player>img {
-    transform: scale(1.5) rotate(90deg) scaleX(-1);
+    -webkit-transform: scale(1.5) rotate(90deg) scaleX(-1);
+        -ms-transform: scale(1.5) rotate(90deg) scaleX(-1);
+            transform: scale(1.5) rotate(90deg) scaleX(-1);
 }
 
 #computer>img {
-    transform: scale(1.5) rotate(270deg);
+    -webkit-transform: scale(1.5) rotate(270deg);
+        -ms-transform: scale(1.5) rotate(270deg);
+            transform: scale(1.5) rotate(270deg);
 }
 
 #rounds {
     font-size: 3rem;
-    color: #E58F65;
-    text-shadow: 3px 3px black;
+    color: var(--orange_writing);
+    text-shadow: var(--shadowing);
 }
 
 #counter {
@@ -140,42 +182,73 @@ input {
 
 #start {
     border-radius: 10px;
-    border: 2px solid black;
-    background-color: #E58F65;
+    border: var(--black_border);
+    background-color: var(--orange_writing);
     font-size: 2rem;
     font-family: inherit;
     cursor: pointer;
 }
 
 #start:hover {
-    transform: scale(1.1);
+    -webkit-transform: var(--scale_transform);
+        -ms-transform: var(--scale_transform);
+            transform: var(--scale_transform);
 }
 
 .roundStartPlayer {
-    animation: jumpPlayer 0.5s 4;
+    -webkit-animation: jumpPlayer 0.5s 4;
+            animation: jumpPlayer 0.5s 4;
 }
 
 .roundStartComputer {
-    animation: jumpComputer 0.5s 4;
+    -webkit-animation: jumpComputer 0.5s 4;
+            animation: jumpComputer 0.5s 4;
 }
 
 /* Animations */
-@keyframes jumpPlayer {
+@-webkit-keyframes jumpPlayer {
     0% {
-        transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
+        -webkit-transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1);
+                transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
     }
 
     50% {
-        transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
+        -webkit-transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1);
+                transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
+    }
+}
+@keyframes jumpPlayer {
+    0% {
+        -webkit-transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1);
+                transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
+    }
+
+    50% {
+        -webkit-transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1);
+                transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
+    }
+}
+
+@-webkit-keyframes jumpComputer {
+    0% {
+        -webkit-transform: translate(0%, 0%) scale(1.5) rotate(270deg);
+                transform: translate(0%, 0%) scale(1.5) rotate(270deg)
+    }
+
+    50% {
+        -webkit-transform: translate(0%, -50%) scale(1.5) rotate(270deg);
+                transform: translate(0%, -50%) scale(1.5) rotate(270deg)
     }
 }
 
 @keyframes jumpComputer {
     0% {
-        transform: translate(0%, 0%) scale(1.5) rotate(270deg) scaleX(1)
+        -webkit-transform: translate(0%, 0%) scale(1.5) rotate(270deg);
+                transform: translate(0%, 0%) scale(1.5) rotate(270deg)
     }
 
     50% {
-        transform: translate(0%, -50%) scale(1.5) rotate(270deg) scaleX(1)
+        -webkit-transform: translate(0%, -50%) scale(1.5) rotate(270deg);
+                transform: translate(0%, -50%) scale(1.5) rotate(270deg)
     }
 }

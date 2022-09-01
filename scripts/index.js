@@ -140,7 +140,7 @@ function game() {
         }
         // Reset button text if user wants to restart the game
         if (button.textContent == 'Try Again') {
-            button.textContent = 'start';
+            button.textContent = 'Start';
             gameRounds = 0;
             playerScore = 0;
             computerScore = 0;
