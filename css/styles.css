@@ -5,12 +5,13 @@
 }
 
 /* Variables */
-:root{
+:root {
     --orange_writing: #E58F65;
     --shadowing: 3px 3px black;
     --black_border: 2px solid black;
     --scale_transform: scale(1.1);
 }
+
 body {
     margin: auto;
     background-color: #F9E784;
@@ -23,8 +24,8 @@ body {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 header {
@@ -36,7 +37,7 @@ header {
     text-shadow: var(--shadowing);
     width: 350px;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+    justify-content: space-around;
 }
 
 header>section {
@@ -45,18 +46,18 @@ header>section {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 header>section:hover {
     -webkit-transform: var(--scale_transform);
-        -ms-transform: var(--scale_transform);
-            transform: var(--scale_transform);
-    cursor:pointer;
+    -ms-transform: var(--scale_transform);
+    transform: var(--scale_transform);
+    cursor: pointer;
 }
 
 #rock {
@@ -99,11 +100,11 @@ main {
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
 }
 
 #game {
@@ -111,8 +112,8 @@ main {
     display: -ms-flexbox;
     display: flex;
     -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 #game>* {
@@ -128,7 +129,7 @@ main {
 }
 
 .score {
-    text-shadow:var(--shadowing);
+    text-shadow: var(--shadowing);
     color: var(--orange_writing);
 }
 
@@ -154,14 +155,14 @@ input {
 
 #player>img {
     -webkit-transform: scale(1.5) rotate(90deg) scaleX(-1);
-        -ms-transform: scale(1.5) rotate(90deg) scaleX(-1);
-            transform: scale(1.5) rotate(90deg) scaleX(-1);
+    -ms-transform: scale(1.5) rotate(90deg) scaleX(-1);
+    transform: scale(1.5) rotate(90deg) scaleX(-1);
 }
 
 #computer>img {
     -webkit-transform: scale(1.5) rotate(270deg);
-        -ms-transform: scale(1.5) rotate(270deg);
-            transform: scale(1.5) rotate(270deg);
+    -ms-transform: scale(1.5) rotate(270deg);
+    transform: scale(1.5) rotate(270deg);
 }
 
 #rounds {
@@ -191,64 +192,105 @@ input {
 
 #start:hover {
     -webkit-transform: var(--scale_transform);
-        -ms-transform: var(--scale_transform);
-            transform: var(--scale_transform);
+    -ms-transform: var(--scale_transform);
+    transform: var(--scale_transform);
 }
 
 .roundStartPlayer {
     -webkit-animation: jumpPlayer 0.5s 4;
-            animation: jumpPlayer 0.5s 4;
+    animation: jumpPlayer 0.5s 4;
 }
 
 .roundStartComputer {
     -webkit-animation: jumpComputer 0.5s 4;
-            animation: jumpComputer 0.5s 4;
+    animation: jumpComputer 0.5s 4;
 }
 
 /* Animations */
 @-webkit-keyframes jumpPlayer {
     0% {
         -webkit-transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1);
-                transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
+        transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
     }
 
     50% {
         -webkit-transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1);
-                transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
+        transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
     }
 }
+
 @keyframes jumpPlayer {
     0% {
         -webkit-transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1);
-                transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
+        transform: translate(0%, 0%) scale(1.5) rotate(90deg) scaleX(-1)
     }
 
     50% {
         -webkit-transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1);
-                transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
+        transform: translate(0%, -50%) scale(1.5) rotate(90deg) scaleX(-1)
     }
 }
 
 @-webkit-keyframes jumpComputer {
     0% {
         -webkit-transform: translate(0%, 0%) scale(1.5) rotate(270deg);
-                transform: translate(0%, 0%) scale(1.5) rotate(270deg)
+        transform: translate(0%, 0%) scale(1.5) rotate(270deg)
     }
 
     50% {
         -webkit-transform: translate(0%, -50%) scale(1.5) rotate(270deg);
-                transform: translate(0%, -50%) scale(1.5) rotate(270deg)
+        transform: translate(0%, -50%) scale(1.5) rotate(270deg)
     }
 }
 
 @keyframes jumpComputer {
     0% {
         -webkit-transform: translate(0%, 0%) scale(1.5) rotate(270deg);
-                transform: translate(0%, 0%) scale(1.5) rotate(270deg)
+        transform: translate(0%, 0%) scale(1.5) rotate(270deg)
     }
 
     50% {
         -webkit-transform: translate(0%, -50%) scale(1.5) rotate(270deg);
-                transform: translate(0%, -50%) scale(1.5) rotate(270deg)
+        transform: translate(0%, -50%) scale(1.5) rotate(270deg)
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    /* Header */
+    header {
+        margin: 6vh 3vw;
+        width: 50vw;
+    }
+
+    /* Outcome message  */
+    #outputMessage {
+        font-size: 3rem;
+    }
+
+    /* Main  */
+    #player,
+    #computer {
+        margin: 9vw;
+        margin-top: 23vh;
+        margin-bottom: 1vw;
+    }
+
+    #computer>img,
+    #player>img {
+        width: 70px;
+    }
+
+    input {
+        visibility: hidden;
+    }
+
+    #counter {
+        font-size: 15vh;
+        top: 20vh;
+    }
+
+    #start {
+        visibility: hidden;
     }
 }

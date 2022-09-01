@@ -57,6 +57,15 @@ function playerSelectionIcon(option) {
 }
 // Function to play a full round of rock paper scissors
 function round() {
+    // Calculate everytime the width of the screen, so the output message
+    // heigth is not too large
+    let width = window.innerWidth;
+    let outputMessageHeigth;
+    if (width > 1000)
+        outputMessageHeigth = "10rem";
+    else
+        outputMessageHeigth = "5rem";
+
     // Memorize the player and computer choices (not case sensitive)
     playerSelection = document.querySelector("#userChoice").value;
     playerSelection = playerSelection.toLowerCase();
@@ -75,7 +84,7 @@ function round() {
     setTimeout(function () {
         document.querySelector("#playerScore").textContent = `Score: ${playerScore}`;
         document.querySelector("#computerScore").textContent = `Score: ${computerScore}`;
-        document.getElementById("outputMessage").style.height = "10rem";
+        document.getElementById("outputMessage").style.height = outputMessageHeigth;
         document.getElementById("outputMessage").textContent = playRound(playerSelection, computerSelection);
     }, 2000);
     // Make outcome message not visible after 2.5s
@@ -85,6 +94,14 @@ function round() {
 }
 // Function to make the game round more visually appealing
 function game() {
+    // Calculate everytime the width of the screen, so the output message
+    // heigth is not too large
+    let width = window.innerWidth;
+    let outputMessageHeigth;
+    if (width > 1000)
+        outputMessageHeigth = "10rem";
+    else
+        outputMessageHeigth = "5rem";
     // Check if the user entered a valid option
     if (OPTIONS.includes(document.querySelector("#userChoice").value)) {
         // Get the elements that are need to be animated or modified
@@ -92,6 +109,13 @@ function game() {
         let player = document.getElementsByClassName("playerImage")[0];
         let button = document.getElementById("start");
         let counter = document.querySelector("#counter");
+        // Reset button text if user wants to restart the game
+        if (button.textContent == 'Try Again') {
+            button.textContent = 'Start';
+            gameRounds = 0;
+            playerScore = 0;
+            computerScore = 0;
+        }
         // Counter Manipulation
         setTimeout(function () {
             counter.style.visibility = "visible";
@@ -119,33 +143,35 @@ function game() {
         // unless it's been finished
         button.disabled = true;
         // Toggle again the animation class so the buttone doesn't
-        // need to be pressed twice for activation + reactivating button
-        // + changing the player/computer image to their pick
+        // need to be pressed twice for activation + changing the
+        // player/computer image to their pick
         setTimeout(function () {
             computer.classList.toggle("roundStartComputer");
             player.classList.toggle("roundStartPlayer");
-            button.disabled = false;
             computer.src = `images/${computerSelection}_hand.png`;
             player.src = `images/${playerSelection}_hand.png`;
         }, 2000);
+        // Activate button after all animations end
+        setTimeout(function () {
+            button.disabled = false;
+        }, 5000);
         // Call round function so a winner for the round is decided
         round();
         // Check if the game of 5 is over
         if (gameRounds >= 5) {
             button.textContent = 'Try Again';
             setTimeout(function () {
-                document.getElementById("outputMessage").style.height = "10rem";
-                document.getElementById("outputMessage").textContent = playerScore > computerScore ? ("You won!") : ("You lost :(");
+                document.getElementById("outputMessage").style.height = outputMessageHeigth;
+                document.getElementById("outputMessage").textContent = playerScore > computerScore ? ("You won!") : playerScore < computerScore ? ("You lost :(") : ("Draw!");
             }, 2000);
         }
-        // Reset button text if user wants to restart the game
-        if (button.textContent == 'Try Again') {
-            button.textContent = 'Start';
-            gameRounds = 0;
-            playerScore = 0;
-            computerScore = 0;
-        }
+
     }
     else
         alert("Please pick a valid option!");
+}
+
+function slateStartButton() {
+    if (window.innerWidth <= 1000)
+        document.querySelector('#start').click();
 }
