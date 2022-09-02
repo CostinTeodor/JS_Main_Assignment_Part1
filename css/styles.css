@@ -294,3 +294,9 @@ input {
         visibility: hidden;
     }
 }
+
+@media screen and (max-width:480px) {
+    #outputMessage {
+        font-size: 2rem;
+    }
+}
