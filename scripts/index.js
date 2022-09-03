@@ -51,9 +51,15 @@ let playerSelection;
 let playerScore = 0
 let computerScore = 0;
 let gameRounds = 0;
+// Function to start game when the icons are clicked, on tablet and phone
+function slateAndPhoneStartButton() {
+    if (window.innerWidth <= 1000)
+        document.querySelector('#start').click();
+}
 // Function to get the player choice if icons are clicked
 function playerSelectionIcon(option) {
     document.querySelector("#userChoice").value = option;
+    slateAndPhoneStartButton();
 }
 // Function to play a full round of rock paper scissors
 function round() {
@@ -65,7 +71,6 @@ function round() {
         outputMessageHeigth = "10rem";
     else
         outputMessageHeigth = "5rem";
-
     // Memorize the player and computer choices (not case sensitive)
     playerSelection = document.querySelector("#userChoice").value;
     playerSelection = playerSelection.toLowerCase();
@@ -172,9 +177,4 @@ function game() {
     }
     else
         alert("Please pick a valid option!");
-}
-
-function slateStartButton() {
-    if (window.innerWidth <= 1000)
-        document.querySelector('#start').click();
 }
