@@ -162,7 +162,10 @@ function game() {
             setTimeout(function () {
                 button.textContent = 'Try Again';
                 document.getElementById("outputMessage").style.height = outputMessageHeigth;
-                document.getElementById("outputMessage").textContent = playerScore > computerScore ? ("You won!") : playerScore < computerScore ? ("You lost :(") : ("Draw!");
+                document.getElementById("outputMessage").textContent =
+                    playerScore > computerScore ? ("You won!")
+                        : playerScore < computerScore ? ("You lost :(")
+                            : ("Draw!");
             }, 2000);
         }
 
